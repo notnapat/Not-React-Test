@@ -1,9 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-/*import ExternalComnent.js*/import HelloComponent from './components/ExternalComponent';
+// /*import ExternalComnent.js*/import HelloComponent from './components/ExternalComponent';
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      // <HelloComponent />
+      <React.StrictMode>
+            <App />
+      </React.StrictMode>
+);
+
 
 // //การสร้าง Component
 // function HelloComponent() {
@@ -17,10 +27,7 @@ import reportWebVitals from './reportWebVitals';
 //       }
 // }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-      <HelloComponent />
-);
+
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
