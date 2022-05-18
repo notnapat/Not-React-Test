@@ -1,0 +1,14 @@
+const Item =()=>{
+    const name = "พักโรงแรม"
+    const amount = 500
+
+
+    return(
+        <li>{name}<span>-{amount}</span></li>
+    )
+    // return(
+    //     <li>พักโรงแรม <span>-500</span></li>
+    // )
+}
+
+export default Item

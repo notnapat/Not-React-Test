@@ -1,6 +1,41 @@
 //ใช้ร่วมกับ <React.Fragment></React.Fragment> import Reac from "react";
-function App() {
+import Transaction from "./components/Transaction"
 
+
+// สร้างComponent และนำมาใช้งาน
+//แบบที่ 1 สร้างไว้ในไฟล์เดียว 
+//แบบที่ 2 สร้างแยกไฟล์ แล้ว import เข้ามา
+      //2.1 Component แม่ (Transaction.js)
+      //2.2 Component ลูก (Item.js)
+      
+const Title =()=> <h1>บัญชีรายรับ-รายจ่าย</h1>
+const Description =()=> <p>บัญชีในแต่ละวัน</p>
+
+// // const Item =()=> <li>ค่าเดินทาง <span>-200</span></li>
+// // const Transaction =()=>{
+// //       return(
+// //             <ul>
+// //                   <Item/>
+// //             </ul>
+// //       )
+// // }
+//       const Transaction =()=>{
+//       return (
+            
+//                   <ul>
+//                         <li>เงินเดือน <span>+20,000</span></li>
+//                         <li>ค่าอาหาร <span>-500</span></li>
+//                   </ul>
+//       )
+// }
+function App() {
+return(
+<div>
+      <Title/>
+      <Description/>
+      <Transaction/>
+</div>
+)
       //tag in JSX return
 
       //ถ้ามีคำสั่งเดียว
@@ -9,17 +44,17 @@ function App() {
       //ถ้ามีหลายคำสั่ง หรือ หลายบรรทัด ต้องมี วงเล็บ( ,Tag )ครอบ
 
       // type<div></div>
-      return (
-            <div>
-                  <h1>บัญชีรายรับ-รายจ่าย</h1>
-                  <p>บัญชีในแต่ละวัน</p>
-                  <ul>
-                        <li>ค่าเดินทาง <span>-200</span></li>
-                        <li>เงินเดือน <span>+20,000</span></li>
-                        <li>ค่าอาหาร <span>-500</span></li>
-                  </ul>
-            </div>
-      )
+      // return (
+      //       <div>
+      //             <h1>บัญชีรายรับ-รายจ่าย</h1>
+      //             <p>บัญชีในแต่ละวัน</p>
+      //             <ul>
+      //                   <li>ค่าเดินทาง <span>-200</span></li>
+      //                   <li>เงินเดือน <span>+20,000</span></li>
+      //                   <li>ค่าอาหาร <span>-500</span></li>
+      //             </ul>
+      //       </div>
+      // )
       // type <section> <article> </article></section>
       // return (
       //       <section>
