@@ -1,7 +1,8 @@
+import './Transaction.css'
 import Item from "./Item"
 const Transaction=()=> {
     return(
-        <ul>
+        <ul className="item-list">
             <Item/>
         </ul>
     )
