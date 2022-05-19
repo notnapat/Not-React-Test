@@ -1,12 +1,18 @@
 import './Item.css'
+import PropTypes from 'prop-types'
 
-//Type 3 props
+//Type 4 props
 const Item =(/*T4 props3*/{title,amount})=>{
     return(
-        <li className="item">{/*T4 props4*/title}<span>-{amount}</span></li>
+        <li className="item">{/*T4 props4*/title}<span>{amount}</span></li>
         
     )
-
+    }
+// PropTypes
+    Item.propTypes = {
+        title:PropTypes.string.isRequired,
+        amount:PropTypes.number.isRequired
+    }
 // //Type 3 props
 // const Item =(/*T3 props3*/props)=>{
 //     /*T3 props4*/ const {title,amount} = props
@@ -34,6 +40,6 @@ const Item =(/*T4 props3*/{title,amount})=>{
     // return(
     //     <li>พักโรงแรม <span>-500</span></li>
     // )
-}
+// }
 
 export default Item
