@@ -2,6 +2,18 @@
 import Transaction from "./components/Transaction"
 import './App.css'
 
+// ค่า props 
+
+ //  Type .3 Transa.js  >  1 , 2 , 5   ;   Item.js >  3, 4 ,;
+
+//  Type .3 Transa.js  >  1 , 2 , 6   ;   Item.js >  3, 4 ,5;
+
+//  Type .2 Transa.js  >  1 , 2 , 5   ;   Item.js >  3, 4;
+
+//     Type1  Transa.js     // 3.แสดงผลลับ <Item        //1.ข้อมูล   title = "ค่าพยาบาล" amount="2000"/>
+//              Item.js  ดึงข้อมูลจาก 1.  มาเป็น props 2  > นำ  props2 มาใช้งาน ที่ 3 แล้วส่งกลับไป 4
+  
+
 //Add className (Css)
      //App.css  >  App.js
      //Transaction.css  >  Tranasction
