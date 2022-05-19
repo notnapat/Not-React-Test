@@ -1,5 +1,10 @@
 //ใช้ร่วมกับ <React.Fragment></React.Fragment> import Reac from "react";
 import Transaction from "./components/Transaction"
+import './App.css'
+
+//Add className (Css)
+     //App.css  >  App.js
+     //Transaction.css  >  Tranasction
 
 // Css Style
 // Type1 เขียนใน Componentนั่นเลย
@@ -8,11 +13,12 @@ import Transaction from "./components/Transaction"
        //3.1  Item.css >  Item.js
        //3.2 Transaction.css > Transaction.js
 
+
 function App(){
-    //Type2 Css =  const design = {color:"red",textAlign:"center",fontSize:'1.5rem'}
+    /*Type2 Css =*/  const design = {color:"red",textAlign:"center",fontSize:'1.5rem'}
       return (
             <div>
-                  <h1 /*Type2 Css=> style={design}*/ /*Type1 .Css  = style={{color:"red",textAlign:"center",fontSize:'1.5rem'}}*/>แอพบัญชีรายรับ - รายจ่าย</h1>
+                  <h1 /*Type2 Css=>*/ style={design} /*Type1 .Css  = style={{color:"red",textAlign:"center",fontSize:'1.5rem'}}*/>แอพบัญชีรายรับ - รายจ่าย</h1>
                   <Transaction/>
             </div>
       )
