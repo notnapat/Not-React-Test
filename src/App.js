@@ -1,6 +1,7 @@
 //ใช้ร่วมกับ <React.Fragment></React.Fragment> import Reac from "react";
 import Transaction from "./components/Transaction"
 import './App.css'
+import FormComponent from "./components/FormComponent"
 
 // ค่า props 
 
@@ -31,7 +32,9 @@ function App(){
       return (
             <div>
                   <h1 /*Type2 Css=>*/ style={design} /*Type1 .Css  = style={{color:"red",textAlign:"center",fontSize:'1.5rem'}}*/>แอพบัญชีรายรับ - รายจ่าย</h1>
+                  <FormComponent/>
                   <Transaction/>
+                  
             </div>
       )
 }
