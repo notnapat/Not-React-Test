@@ -1,31 +1,49 @@
 import './FormComponent.css'
+import {useState} from 'react'
+
+
+
+const FormComponent = () => {
+
+// Hook and state     ดึงค่าใน input มาใช้งานต่อ และ แสดงผล  1-6 
+      const [/* title ใช่แสดงข้อมูล*/  title,     /*setTitleใช้ดึงข้อมูล*/   setTitle] = useState('')  // H and S  1 เก็บค่าที่พิมพ์  จาก inputTitle 
+      const [amount,setAmount] = useState('')   //  H and  S 1 เก็บค่าที่พิมพ์ จาก inputAmount
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // (F) FormComponent  and  Css 
 // (E) Event
 
 const inputTitle =(event)=>{     // (E)ดักจับ event 
-      console.log(event.target.value)  // (E) (event.taeget.value) แสดงข้อมูลตามที่เราพิมพ์
+      setTitle(event.target.value)  // H and S  2 เก็บที่พิมพ์ เข้า usestate
+      //console.log(event.target.value)  // (E) (event.taeget.value) แสดงข้อมูลตามที่เราพิมพ์
 }
 const inputAmount =(event)=>{
-      console.log(event.target.value)
+     setAmount(event.target.value)  // H and S 2
+     // console.log(event.target.value)
 }
 
 const saveItem =(event)=>{
       event.preventDefault()  // ค้างการแสดง console ไว้ ไม่ให้รี
-      console.log("save complete")
-}
-const FormComponent = () => {
+      // console.log("save complete")
+      const itemData = {             //  H and S 3 รวมค่าพร้อมแสดง
+            title:title,
+            amount:Number(amount)
+      }
+console.log (itemData) //  H  and  S   4    // แสดงค่าของ usestate  ที่รับค่ามาแล้ว
+setTitle('')  // H and S 5 เปลี่ยนค่าที่แสดง หลังจาก แสดง usestate ,ตกลง , บันทึก 
+setAmount(0)
+}      
       return (
+
             <div >
                   <form onSubmit={saveItem}>
                         <div className="form-control">
                               <label>ชื่อรายการ</label>
-                              <input type="text" placeholder="ระบุชื่อรายการ" onChange={inputTitle}/>
+                              <input type="text" placeholder="ระบุชื่อรายการ" onChange={inputTitle} /* H and S 6เปลี่ยนเป็นค่าเดิม ของ usestate*/ value={title}/>
                         </div>
                         <div className="form-control">
                               <label>จำนวนเงิน</label>
-                              <input type="number" placeholder="(+ รายรับ , - รายจ่าย)" />
+                              <input type="number" placeholder="(+ รายรับ , - รายจ่าย)" onChange={inputAmount} value={amount} />
                         </div>
                         <div >
                               <button type="submit" className="btn">เพิ่มข้อมูล</button>
@@ -34,6 +52,5 @@ const FormComponent = () => {
             </div>
       )
 }
-
 
 export default FormComponent
