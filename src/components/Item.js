@@ -1,10 +1,13 @@
 import './Item.css'
 import PropTypes from 'prop-types'
 
-//Type 4 props
-const Item =(/*T4 props3*/{title,amount})=>{
+// Css +expense , -income
+const Item =(props)=>{
+    const {title,amount} = props
+    const status =amount <0 ? "expense":"income"  // Css + -  1 ถ้าน้อยกว่า0 ให้ จริง ถ้ามากกว่า 0 ให้ผิด
+    const symbol = amount<0 ? "-":"+"  // Css + -  2 ถ้าน้อยกว่า0 ให้ - ถ้ามากกว่า 0 ให้ +
     return(
-        <li className="item">{/*T4 props4*/title}<span>{amount}</span></li>
+        <li className={status}>{title}<span>{symbol}{Math.abs(amount)}</span></li> // Css +- 3 +item.css , 'Math.abs' คือทำให้เครื่องหมาย+-ตอนระบุในinput แสดงออกมาตัวเดียว
         
     )
     }
@@ -13,6 +16,12 @@ const Item =(/*T4 props3*/{title,amount})=>{
         title:PropTypes.string.isRequired,
         amount:PropTypes.number.isRequired
     }
+   //Type 4 props const Item =(/*T4 props3*/{title,amount})=>{
+    // return(
+    //     <li className="item">{/*T4 props4*/title}<span>{amount}</span></li>
+        
+    // )
+    // }
 // //Type 3 props
 // const Item =(/*T3 props3*/props)=>{
 //     /*T3 props4*/ const {title,amount} = props

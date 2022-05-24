@@ -3,3 +3,10 @@
     text-align: center;
     list-style-type:none;
 }
+.expense{   /*Css +- 3.1 */
+    border-right: 5px solid red;
+    
+}
+.income{   /*Css +- 3'1 */
+    border-right: 5px solid #2ccc71;
+}
