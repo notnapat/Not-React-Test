@@ -1,9 +1,9 @@
 import './FormComponent.css'
 import {useState} from 'react'
+import { v4 as uuidv4 } from 'uuid'    // App.js P , P 7
 
 
-
-const FormComponent = () => {
+const FormComponent = (props) => {   // App.js P , P 9  สร้าง    (props) เพื่อจะส่งข้อมูลกลับไป App.js
 
 // Hook and state     ดึงค่าใน input มาใช้งานต่อ และ แสดงผล  1-6 
       const [/* title ใช่แสดงข้อมูล*/  title,     /*setTitleใช้ดึงข้อมูล*/   setTitle] = useState('')  // H and S  1 เก็บค่าที่พิมพ์  จาก inputTitle 
@@ -26,10 +26,12 @@ const saveItem =(event)=>{
       event.preventDefault()  // ค้างการแสดง console ไว้ ไม่ให้รี
       // console.log("save complete")
       const itemData = {             //  H and S 3 รวมค่าพร้อมแสดง
+            id:uuidv4(),                              //App.js P , P 8 
             title:title,
             amount:Number(amount)
       }
-console.log (itemData) //  H  and  S   4    // แสดงค่าของ usestate  ที่รับค่ามาแล้ว
+// console.log (itemData) //  H  and  S   4    // แสดงค่าของ usestate  ที่รับค่ามาแล้ว
+props.onAddItem(itemData) // App.js P , P 10 ส่งข้อมูล กลับไป App.js  (onAppItem)
 setTitle('')  // H and S 5 เปลี่ยนค่าที่แสดง หลังจาก แสดง usestate ,ตกลง , บันทึก 
 setAmount(0)
 }      

@@ -1,28 +1,37 @@
 import './Transaction.css'
 import Item from "./Item"
-import { v4 as uuidv4 } from 'uuid'
-
-const Transaction = () => {
-
-      // loop  '.map'  and 'unique key'  and 'uuid' สุ่ม key and  Item.js 'PropsTypes' เตือนการระบุค่าข้อมูลให้ถูก และ ค่าว่าง
-      const data = [
-
-            { /*ตั้ง id or key เอง = > id: 1,*/  title: "ค่าพยาบาล", amount: 2000 },
-            { title: "เงินเดือน", amount: 20000},
-            { title: "ค่าเดินทาง", amount: 600 },
-            { title: "ค่ากิน", amount:200 }
-      ]
 
 
+const Transaction = (props) => { // App.js P , P 3 ตั้งเพื่อจะดึงค่า (props)  
+
+      const { items } = props  //App.js P , P 4  รับค่า - ดึงค่า มาจากApp.js { items } = props
       return (
             <ul className="item-list">
-                  {data.map((element) => {
-             /* แบบเต็ม */       return <Item title={element.title} amount={element.amount} /*แบบตั้ง id or key เอง key={element.id}*/ key = {uuidv4()} />
-                        // /*แบบย่อ*/        return <Item {...element} /*แบบตั้ง id or key เอง key={element.id}*/  key = {uuidv4()}/>
+                  {items.map((element) => {           // App.js P , P 5 map ค่า items
+                        return <Item {...element} key={element.id} />  // App.js P , P 6 เปลี่ยน key เป็น .id
                   })}
             </ul>
       )
 }
+//       // loop  '.map'  and 'unique key'  and 'uuid' สุ่ม key and  Item.js 'PropsTypes' เตือนการระบุค่าข้อมูลให้ถูก และ ค่าว่าง
+//       const data = [
+
+//             { /*ตั้ง id or key เอง = > id: 1,*/  title: "ค่าพยาบาล", amount: 2000 },
+//             { title: "เงินเดือน", amount: 20000},
+//             { title: "ค่าเดินทาง", amount: 600 },
+//             { title: "ค่ากิน", amount:200 }
+//       ]
+
+
+//       return (
+//             <ul className="item-list">
+//                   {data.map((element) => {
+//              /* แบบเต็ม */       return <Item title={element.title} amount={element.amount} /*แบบตั้ง id or key เอง key={element.id}*/ key = {uuidv4()} />
+//                         // /*แบบย่อ*/        return <Item {...element} /*แบบตั้ง id or key เอง key={element.id}*/  key = {uuidv4()}/>
+//                   })}
+//             </ul>
+//       )
+// }
 
 // //Type .2 props , Type.3 , Type.4
 //     const data = [

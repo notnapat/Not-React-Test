@@ -2,8 +2,35 @@
 import Transaction from "./components/Transaction"
 import './App.css'
 import FormComponent from "./components/FormComponent"
+import { useState} from "react"  // App.js P , P 13  
+function App() {
+      const design = {color:"red" , textAlign:"center" , fontSize:'1.5rem'}
 
-// ค่า props 
+      // App.js  Pull Push 1-16 รับส่งข้อมูลระหว้าง component ลูก ผ่าน  App.js (compo แม่) 
+                                                                                            
+      const initdata = [                                                         // App.js P , P 1่
+            {id:1,title: "ค่าพยาบาล" ,amount:2000},                 //1
+            {id:2,title: "ค่ากิน" ,amount:400},                            //1
+            {id:3,title: "ค่าเดินทาง" ,amount:500}                        //1
+      ]
+
+      const [items,setItems] = useState(initdata ) //App.js P , P 14 ข้อมูลใหม่ + usestate ข้อมูลเก่า 
+      const onAddNewItem = (newItem) =>{    // App.js P , P 12  ข้อมูลจาก FormComponent.js (itemData) พร้อมใช้งาน
+            setItems((prevItem)=>{                        // App.js P , P  15 รวมข้อมูลใหม่ และเก่า ไว้ใน usestate เตรียมไปใช้งานต่อ
+                  return [newItem,...prevItem]           //App.js P , P  15
+            })
+      }
+return (
+      <div className="container">
+            <h1 style={design}>แอพบัญชีรายรับ-รายจ่าย</h1> 
+            <FormComponent onAddItem = {onAddNewItem}/> { //App.js P , P 11 รับค่ามาจาก FormComponent.js 'onAddItem'
+            /* Transaction items = initdata/  //  App.js P , P 2  ข้อมุลเก่า   ส่ง props ตัวแปล initData กลับไป Transaction.js */}
+            <Transaction items = {items}/>  { /*//  App.js P  , P 16 , 2  ทั้งแสดงใหม่ใน input  และ ส่ง props ตัวแปล initData กลับไป Transaction.js */}
+      </div>
+)
+}
+
+// ค่า props   (การดึง รีบ ส่ง ข้อมูล)
 
  //  Type .3 Transa.js  >  1 , 2 , 5   ;   Item.js >  3, 4 ,;
 
@@ -27,17 +54,17 @@ import FormComponent from "./components/FormComponent"
        //3.2 Transaction.css > Transaction.js
 
 
-function App(){
-    /*Type2 Css =*/  const design = {color:"red",textAlign:"center",fontSize:'1.5rem'}
-      return (
-            <div>
-                  <h1 /*Type2 Css=>*/ style={design} /*Type1 .Css  = style={{color:"red",textAlign:"center",fontSize:'1.5rem'}}*/>แอพบัญชีรายรับ - รายจ่าย</h1>
-                  <FormComponent/>
-                  <Transaction/>
+// function App(){
+//     /*Type2 Css =*/  const design = {color:"red",textAlign:"center",fontSize:'1.5rem'}
+//       return (
+//             <div>
+//                   <h1 /*Type2 Css=>*/ style={design} /*Type1 .Css  = style={{color:"red",textAlign:"center",fontSize:'1.5rem'}}*/>แอพบัญชีรายรับ - รายจ่าย</h1>
+//                   <FormComponent/>
+//                   <Transaction/>
                   
-            </div>
-      )
-}
+//             </div>
+//       )
+// }
 
 
 // // สร้างComponent และนำมาใช้งาน
