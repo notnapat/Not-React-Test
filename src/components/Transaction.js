@@ -1,16 +1,21 @@
 import './Transaction.css'
 import Item from "./Item"
-
+import DataContext from './data/DataContext'
+import { useContext } from 'react'  /*useContext1*/
 
 const Transaction = (props) => { // App.js P , P 3 ตั้งเพื่อจะดึงค่า (props)  
-
+const name = useContext(DataContext)  // useContext2 ดึงข้อมูลมาจาก DataContext
       const { items } = props  //App.js P , P 4  รับค่า - ดึงค่า มาจากApp.js { items } = props
       return (
-            <ul className="item-list">
-                  {items.map((element) => {           // App.js P , P 5 map ค่า items
-                        return <Item {...element} key={element.id} />  // App.js P , P 6 เปลี่ยน key เป็น .id
-                  })}
-            </ul>
+            <div>
+                  <ul className="item-list">
+                        {items.map((element) => {           // App.js P , P 5 map ค่า items
+                              return <Item {...element} key={element.id} />  // App.js P , P 6 เปลี่ยน key เป็น .id
+                        })}
+                  </ul>
+                  { /*Context api (global state) 3 ตัวดึงข้อมูล หรือรับข้อมูล*/}
+                  {name} {/*useContext3*/}
+            </div>
       )
 }
 //       // loop  '.map'  and 'unique key'  and 'uuid' สุ่ม key and  Item.js 'PropsTypes' เตือนการระบุค่าข้อมูลให้ถูก และ ค่าว่าง

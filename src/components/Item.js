@@ -1,5 +1,6 @@
 import './Item.css'
 import PropTypes from 'prop-types'
+import DataContext from './data/DataContext'
 
 // Css +expense , -income
 const Item =(props)=>{
@@ -7,8 +8,12 @@ const Item =(props)=>{
     const status =amount <0 ? "expense":"income"  // Css + -  1 ถ้าน้อยกว่า0 ให้ จริง ถ้ามากกว่า 0 ให้ผิด
     const symbol = amount<0 ? "-":"+"  // Css + -  2 ถ้าน้อยกว่า0 ให้ - ถ้ามากกว่า 0 ให้ +
     return(
-        <li className={status}>{title}<span>{symbol}{Math.abs(amount)}</span></li> // Css +- 3 +item.css , 'Math.abs' คือทำให้เครื่องหมาย+-ตอนระบุในinput แสดงออกมาตัวเดียว
-        
+        <li className={status}>{title}<span>{symbol}{Math.abs(amount)}</span> {/*Css +- 3 +item.css , 'Math.abs' คือทำให้เครื่องหมาย+-ตอนระบุในinput แสดงออกมาตัวเดียว */}
+      { /*Context api (global state) 3 ตัวดึงข้อมูล หรือรับข้อมูล*/}
+        <DataContext.Consumer>       
+            {value=><p>{value}</p>}      
+        </DataContext.Consumer>      
+        </li>
     )
     }
 // PropTypes
