@@ -9,7 +9,7 @@ const ReportComponent = () => {
         <div>
             <h4>ยอดคงเหลือ</h4>
             <h1>{income-expense}</h1>
-            <div className="report-container">{income}
+            <div className="report-container">
                 <div>
                     <h4>ยอดรายรับ</h4>
                     <p className="report plus">{income}</p>
