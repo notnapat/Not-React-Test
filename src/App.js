@@ -29,10 +29,13 @@ function App() {
             const amount = items.map(items => items.amount)
             const income = amount.filter(element => element > 0).reduce((total, element) => total += element, 0)
             const expense = (amount.filter(element => element < 0).reduce((total, element) => total += element, 0)) * -1
-            setReportIncome(income.toFixed(2))
-            setReportExpense(expense.toFixed(2))
+            setReportIncome(income.toFixed(2)) // 0.00 ทศนิยม 1
+            setReportExpense(expense.toFixed(2)) // 0.00 ทศนิยม 2
 
       }, [items, reportIncome, reportExpense])
+
+      // 0.00 ทศนิยม  1-2
+      //  0,000 คอมม่า จำนวนเลข ReportComponent.js  1-1 ,2, 3
 
       // React Router  สร้าง ใช้ ควบคุม ลิงก์   1-4
       // React Router 1 install npm 

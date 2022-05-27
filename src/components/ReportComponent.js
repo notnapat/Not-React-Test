@@ -5,21 +5,23 @@ import './ReportComeponent.css'
 const ReportComponent = () => {
   //ผลรวมยอดคงเหลือ 3
     const { income, expense } = useContext(DataContext)
+
+      //  0,000 คอมม่า จำนวนเลข 1----
     const formatNumber=(num)=> {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-}
+}       //  0,000 คอมม่า จำนวนเลข 1
     return (
         <div>
             <h4>ยอดคงเหลือ</h4>
-            <h1>{formatNumber((income-expense).toFixed(2))}</h1>
+            <h1>{formatNumber((income-expense).toFixed(2))}</h1>   
             <div className="report-container">
                 <div>
                     <h4>ยอดรายรับ</h4>
-                    <p className="report plus">{formatNumber(income)}</p>
+                    <p className="report plus">{formatNumber(income)}</p>  {/* 0,000 คอมม่า จำนวนเลข 2 formatNumber*/}
                 </div>
                 <div>
                     <h4>ยอดรายจ่าย</h4>
-                    <p className="report minus">{formatNumber(expense)}</p>
+                    <p className="report minus">{formatNumber(expense)}</p> {/*  0,000 คอมม่า จำนวนเลข 3 formatNumber */}
                 </div>
             </div>
 
