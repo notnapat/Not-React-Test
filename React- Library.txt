@@ -1,0 +1,6 @@
+uuid = สุ่ม key หรือ id
+PropsTypes  = เตือนการระบุค่าข้อมูลให้ถูก และ ค่าว่าง
+
+npm install
+npm install react-router-dom  = ใช้ สร้าง ควบคุมลิงก์
+npm install && npm run build = Deploy Project  สร้างตัวรันโปรเจค พร้อมอัพขึ้นเซิฟเวอร์
